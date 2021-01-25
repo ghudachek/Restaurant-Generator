@@ -45,8 +45,8 @@ API: https://documenu.com/
 
 ## Wireframes
 
-[Desktop WireFrame](https://whimsical.com/restaurant-generator-site-Vo44rwy9KRcjKoviKp8tXA)
-[Mobile WireFrame](https://whimsical.com/smartphone-restaurant-generator-layout-CJPYpwyYah4d8dX58aL7aG)
+* [Desktop WireFrame](https://whimsical.com/restaurant-generator-site-Vo44rwy9KRcjKoviKp8tXA)
+* [Mobile WireFrame](https://whimsical.com/smartphone-restaurant-generator-layout-CJPYpwyYah4d8dX58aL7aG)
 
 #### MVP 
 *These are examples only. Replace with your own MVP features.*
