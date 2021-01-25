@@ -79,7 +79,7 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 ## Priority Matrix
 
-link
+ [Priority Matrix](https://github.com/ghudachek/Restaurant-Generator/blob/main/Priority%20Matrix.png)
 
 ## Timeframes
 
