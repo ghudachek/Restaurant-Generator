@@ -7,11 +7,13 @@ Deployed url [] ()
 
 ## Project Description
 
-Restaurant Generator using Documenu to grab restaurants by zip-code searching. Will list name, cost scale, location and a link to the restaurants site. Also includes a like list to pick options from the generated list and allows you to randomize this list (for those who can never choose where to eat!)
+Restaurant Generator using API Documenu to grab restaurants by zip-code search. Restaurants will show name, website link,location, and money rating scale (from $-$$$$). Listed restaurants can be saved to your own liked list and randomized to generate "where you will eat tonight?" for those who can never choose!
 
 ## API and Data Sample
 
-Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
+API I will use: https://documenu.com/
+Code Snippet of Data Grab:
+
 
 ## Wireframes
 
