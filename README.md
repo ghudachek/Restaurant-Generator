@@ -11,11 +11,42 @@ Restaurant Generator using API Documenu to grab restaurants by zip-code search. 
 
 ## API and Data Sample
 
-API I will use: https://documenu.com/
-Code Snippet of Data Grab:
+API: https://documenu.com/
 
+    "totalResults": 83,
+    "page": 1,
+    "total_pages": 4,
+    "more_pages": true,
+    "data": [
+        {
+            "restaurant_name": "Hard Rock Cafe",
+            "restaurant_phone": "(615) 742-9900",
+            "restaurant_website": "",
+            "hours": "",
+            "price_range": "",
+            "price_range_num": 0,
+            "restaurant_id": 3616232086774404,
+            "cuisines": [
+                "American"
+            ],
+            "address": {
+                "city": "NASHVILLE",
+                "state": "TN",
+                "postal_code": "37201",
+                "street": "100 Broadway",
+                "formatted": "100 Broadway NASHVILLE, TN 37201"
+            },
+            "geo": {
+                "lat": 36.16232,
+                "lon": -86.774404
+            },
+            "menus": [],
+            "last_updated": "2021-01-05T07:35:32.858Z"
+        },
 
 ## Wireframes
+
+https://whimsical.com/restaurant-generator-site-Vo44rwy9KRcjKoviKp8tXA
 
 Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
 
