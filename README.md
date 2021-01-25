@@ -2,8 +2,7 @@
 
 ## Restaurant Generator
 
-The name of your project.
-Deployed url [] ()
+[Restaurant Generator](https://github.com/ghudachek/Restaurant-Generator)
 
 ## Project Description
 
