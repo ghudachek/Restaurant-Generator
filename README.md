@@ -85,14 +85,14 @@ API: https://documenu.com/
 | Link JS data to search button, and create search output (JS to HTML) | H | 3hrs| hrs | hrs |
 | Create "add" button(linked to restaurants) to  add to saved list | H | 3hrs| hrs | hrs |
 | Create rating section and check-off boxes too saved list| H | 3hrs| hrs | hrs |
-| Create random restaurant generator button | H | 2hrs| hrs | hrs |
+| Create random restaurant generator button | H | 3hrs| hrs | hrs |
 | Add flexbox CSS to saved list and main search fields of webpage | H | 3hrs| hrs | hrs |
 | Create MediaQuery to move saved list to a side menu option | H | 3hrs| hrs | hrs |
 | Advance CSS to add style | H | 3hrs| hrs | hrs |
 | Create map: add from API| H | 3hrs| hrs | hrs |
 | Get map to show listed restaurants on it | H | 3hrs| hrs | hrs |
 | Have map toggle per user preference(hide unless clicked on) | H | 1.5hrs| hrs | hrs |
-| Total | H | 29hrs| hrs | hrs |
+| Total | H | 30hrs| hrs | hrs |
 
 ## Code Snippet
 
