@@ -65,9 +65,9 @@ API: https://documenu.com/
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Jan 25-26| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|Jan 26| Project Approval / Psuedocode layout of html,css,JS | Incomplete
-|Jan 27| Create Js to grab proper data from API. Link data to html elements and get search section functioning. | Incomplete
+|Jan 25-26| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
+|Jan 26| Project Approval / Psuedocode layout of HTML,JS,CSS/ Boilerplate HTML&JS w/ API grab functioning/Boiler CSS | Incomplete
+|Jan 27| Link API data to html elements and get user search section functioning. | Incomplete
 |Jan 28| Create 'saved list' for user add JS functions: button, rating, checkoff,random generator. | Incomplete
 |Jan 29| Have all MVPs completed by end of the day | Incomplete
 |Feb 1| Presentations/Project Submission | Incomplete
