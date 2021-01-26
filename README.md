@@ -54,13 +54,13 @@ API: https://documenu.com/
 - Allow users to search for Restaurants in their area given a zip-code.
 - Incorporate restaurant data listed above into a clean readable design on webpage(CSS/flexbox).
 - Give users the option to create their own seperate list of "saved" or "liked restaurants.
-- Give users the ability to checkoff from their list and rate the Restaurant on their list.
+- Give users the ability to checkoff from their list and rate the Restaurant on their list -only to show functionality!(will not be able to save user data on refresh).
 - Give users the ability to generate a randomly picked restaurant from their liked list as a way to choose where they may eat next.
 
 #### PostMVP  
 - Use a map API to generate a map of user chosen location with list of restaurants on it.
 - Give users the ability to add other restaurants to their list (even if they weren't listed on the search?).
-- Have a way for users to save their list and data they add to it.
+-Local store saving??
 ## Project Schedule
 
 |  Day | Deliverable | Status
