@@ -54,7 +54,7 @@ API: https://developers.zomato.com/api
 
 #### MVP 
 
-- Gather Restaurant title, location, website, and hours of operation from API chosen(Docmenu).
+- Gather Restaurant title, location, website, and hours of operation from API chosen(Zomato).
 - Allow users to search for Restaurants in their area given a zip-code.
 - Incorporate restaurant data listed above into a clean readable design on webpage(CSS/flexbox).
 - Give users the option to create their own seperate list of "saved" or "liked restaurants.
