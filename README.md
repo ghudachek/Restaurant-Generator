@@ -61,8 +61,6 @@ API: https://documenu.com/
 - Use a map API to generate a map of user chosen location with list of restaurants on it.
 - Give users the ability to add other restaurants to their list (even if they weren't listed on the search?).
 - Have a way for users to save their list and data they add to it.
-- Create a 'foodie diary' for users-- instead of just a list.. let them add details and images(if you're that person) to their list so they can remeber in the future where they went, what they liked, and be able to share with friends.
-
 ## Project Schedule
 
 |  Day | Deliverable | Status
@@ -94,7 +92,7 @@ API: https://documenu.com/
 | Create map: add from API| H | 3hrs| hrs | hrs |
 | Get map to show listed restaurants on it | H | 3hrs| hrs | hrs |
 | Have map toggle per user preference(hide unless clicked on) | H | 1.5hrs| hrs | hrs |
-| Total | H | 29hrs| 5hrs | 5hrs |
+| Total | H | 29hrs| hrs | hrs |
 
 ## Code Snippet
 
