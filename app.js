@@ -73,8 +73,8 @@ async function getRestaurants(cityId) {
 
     let restaurantSearch = await axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&apikey=dc94f6e47c74ca3499a36e0541cb3e65`)
     //console.log(restaurantSearch.data)
-    console.log(restaurantSearch.data.restaurants.length)
-    console.log(restaurantSearch.data.restaurants)
+    // console.log(restaurantSearch.data.restaurants.length)
+    //console.log(restaurantSearch.data.restaurants)
     //console.log(restaurantSearch.data.restaurants[1])
 
 
@@ -93,17 +93,21 @@ async function getRestaurants(cityId) {
       //console.log(element.restaurant.phone_numbers)
       let phoneNum = element.restaurant.phone_numbers
       const restaurantInfo =
+        `  
+    <div class='restaurant' id='restAll'>
+      <label for='name'>${restName}</label> 
+      
+    </div>
+    <div class='restData'>
+      <button id='save'>Add to List</button>
+      <p>${restRating}</p>
+      <a>${restAddress}</a>
+      <a href=${phoneNum}>${phoneNum}</a>
+      <p>${restHours}</p>
+      <a href=${restWebsite}>${restName}'s Webstie</a>
+    </div>
         `
-    <li class='restaurant'>
-    <h3>${restName}</h3> <button id='save'>Add to List</button>
-    <p>${restRating}</p>
-    <a>${restAddress}</a>
-    <a href=${phoneNum}>${phoneNum}</a>
-    <p>${restHours}</p>
-    <a href=${restWebsite}>${restName}'s Webstie</a>
-    </li>
-    `
-      console.log(restaurantInfo)
+      // console.log(restaurantInfo)
       const restInfoContainer = document.querySelector('.search-results')
       restInfoContainer.insertAdjacentHTML("beforeend", restaurantInfo)
 
@@ -123,71 +127,63 @@ fetchButton.addEventListener('click', (e) => {
   getLocations(userInput.value)
 })
 
+///////
+///ADDS ONE LI UNIT (RESTAURANT TO SAVED PERSONAL LIST)
+/// does so by changing the button and li to each have a different (numbered) classname to select seperatley
 function addSaved() {
   //ADD TO SAVED 
   let listButton = document.querySelectorAll('#save')
   let lists = document.querySelectorAll('.restaurant')
+  let extraData = document.querySelectorAll('.restData')
   console.log(listButton) //is an array!
   for (i = 0; i < lists.length; i++) {
-    lists[i].className = `restaurant${[i]}`
-    console.log(lists[i])
+    lists[i].className = `restaurant${[i]} `
+    extraData[i].className = `restData${[i]}`
+    //console.log(lists[i])
   }
   for (i = 0; i < listButton.length; i++) {
-    listButton[i].className = `save${[i]}`
+    listButton[i].className = `save${[i]} `
     let restaurant = document.querySelector(`.restaurant${i}`)
+    let delRest = document.querySelector(`.restData${i}`)
+    console.log(delRest)
     //console.log(listButton[i]) it works! gives each button a different class name ..
     listButton[i].addEventListener('click', (e) => {
       e.preventDefault()
       let divList = document.querySelector('.user-list')
+      let searchResults = document.querySelector('.search-results')
+      // let del = document.querySelectorAll('.restaurants')
       divList.append(restaurant)
+      searchResults.removeChild(delRest) //removes extra data from search
+      //console.log(divList)
+
     })
   }
 
-  //let saveButton = document.querySelector(`#save`)
-  //const userList = document.querySelector('.user-list')
-  //saveButton.addEventListener('click', (e) => {
-  //e.preventDefault()
-  //userList.append()
+}
+//<input type='checkbox' value='name'> <br></br>
 
-  //})
+///GENERATE RANDOM PICK:
 
+
+function choose() {
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+  let currentChoice = 0;
+  let savedChoices = document.querySelectorAll('#restAll')
+  getRandomInt(savedChoices.length)
+  currentChoice = getRandomInt(savedChoices.length);
+  console.log(currentChoice)
+  console.log(savedChoices[currentChoice])
 }
 
-
+let generatorButton = document.querySelector('#generate-rest')
+generatorButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  choose();
+})
 //consdier grabbing lat and long from data.restaurant.location(.latitude/longitude) for map placement?
 
 
 
 
-// Grab data for each Restaurant Array: name, location, hours, website  
-// function getRestaurantsData() {
-//   restaurantSearch.data.restaurants.forEach(element => {
-
-//     console.log(element.restaurant.name)
-//     let restName = element.restaurant.name
-//     console.log(element.restaurant.location.address)
-//     let restAddress = element.restaurant.location.address
-//     console.log(element.restaurant.timings)
-//     let restHours = element.restaurant.timings
-//     console.log(element.restaurant.url)
-//     let restWebsite = element.restaurant.url
-//     console.log(element.restaurant.user_rating.aggregate_rating)
-//     let restRating = element.restaurant.user_rating.aggregate_rating
-//     console.log(element.restaurant.phone_numbers)
-//     let phoneNum = element.restaurant.phone_numbers
-//     const restaurantInfo =
-//       `
-//   <li>
-//   <h3>${restName}</h3>
-//   <p>${restRating}</p>
-//   <a>${restAddress}</a>
-//   <a href=${phoneNum}>${phoneNum}</a>
-//   <p>${restHours}</p>
-//   <a href=${restWebsite}>${restName}'s Webstie</a>
-//   </li>
-//   `
-//     const restInfoContainer = document.querySelector('.search-results')
-//     restInfoContainer.insertAdjacentHTML("beforeend", restaurantInfo)
-
-//   });
-// }

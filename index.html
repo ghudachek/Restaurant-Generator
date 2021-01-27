@@ -11,32 +11,55 @@
 </head>
 
 <body>
+  <h1>Restaurant Generator</h1>
   <div class='search-bar'>
-
-
     <input type='text' class='search' placeholder="city">
     <button id='find'>Find</button>
     <div class='city-options'></div>
-
-    </select>
-
-  </div>
-  <ul class='search-results'>
-
-  </ul>
-
-  <div class='user-list'>
-    <h2>Your List</h2>
-    <ul>
-      <input type="checkbox" id="rest1" name="rest1" value="Restaurant">
-      <label for="res1"> Panchos & Lefty's</label><br>
-    </ul>
   </div>
 
-  <div class='generator'>
-    <h2>Where To Eat Today?!</h2>
-    <button id='generate-rest'>Choose For Me</button>
-  </div>
+  <section class='container'>
+
+    <div class='column'>
+
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class='user-list'>
+          <h2>Your List</h2>
+          <ul>
+            <label for='res1'> Panchos & Lefty's</label><br>
+            <input type='checkbox' id='rest1' name='rest1' value='Restaurant'>
+
+          </ul>
+        </div>
+        <div class='generator'>
+          <h2>Where To Eat Today?!</h2>
+          <button id='generate-rest'>Choose For Me</button>
+        </div>
+      </div>
+
+
+      <div class='column'>
+        <ul class='search-results'></ul>
+      </div>
+  </section>
+
+
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+
+
+
 
 
 </body>
