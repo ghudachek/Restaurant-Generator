@@ -11,19 +11,29 @@
 </head>
 
 <body>
-  <h1>Restaurant Generator</h1>
-  <div class='search-bar'>
-    <input type='text' class='search' placeholder="city">
-    <button id='find'>Find</button>
-    <div class='city-options'></div>
-  </div>
+  <main id='main'>
 
-  <section class='container'>
+    <h1>Restaurant Generator</h1>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+    <div class='search-bar'>
+
+      <input type='text' class='search' placeholder="city">
+      <button id='find'>Find</button>
+      <div class='city-options'></div>
+    </div>
+
+
 
     <div class='column'>
+      <ul class='search-results'></ul>
+    </div>
+  </main>
 
-      <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <section class='container'>
+    <div class='column'>
+      <section id='sideBar'>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;Close</a>
         <div class='user-list'>
           <h2>Your List</h2>
           <ul>
@@ -33,34 +43,12 @@
           </ul>
         </div>
         <div class='generator'>
-          <h2>Where To Eat Today?!</h2>
+          <h2>Where Will You Go?!</h2>
           <button id='generate-rest'>Choose For Me</button>
         </div>
-      </div>
-
-
-      <div class='column'>
-        <ul class='search-results'></ul>
-      </div>
+      </section>
+    </div>
   </section>
-
-
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-
-  <script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-    }
-
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-    }
-  </script>
-
-
-
-
-
 
 </body>
 

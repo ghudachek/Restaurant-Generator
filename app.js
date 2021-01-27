@@ -160,7 +160,11 @@ function addSaved() {
   }
 
 }
-//<input type='checkbox' value='name'> <br></br>
+const myList =
+  `
+   <input type='checkbox' value='name'> <br></br>
+ `
+let userList = document.querySelectorAll('restaurant')
 
 ///GENERATE RANDOM PICK:
 
@@ -183,7 +187,14 @@ generatorButton.addEventListener('click', (e) => {
   choose();
 })
 //consdier grabbing lat and long from data.restaurant.location(.latitude/longitude) for map placement?
+// SIDEBAR FUNCTIONS
+function openNav() {
+  document.getElementById("sideBar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
 
-
-
+function closeNav() {
+  document.getElementById("sideBar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
 
