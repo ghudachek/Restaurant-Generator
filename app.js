@@ -71,28 +71,31 @@ async function getLocations(city) {
 async function getRestaurants(cityId) {
   try {
 
-    let restaurantSearch = await axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&count=40&apikey=dc94f6e47c74ca3499a36e0541cb3e65`)
+    let restaurantSearch = await axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&apikey=dc94f6e47c74ca3499a36e0541cb3e65`)
     //console.log(restaurantSearch.data)
+    console.log(restaurantSearch.data.restaurants.length)
+    console.log(restaurantSearch.data.restaurants)
+    //console.log(restaurantSearch.data.restaurants[1])
 
 
     restaurantSearch.data.restaurants.forEach(element => {
-
-      console.log(element.restaurant.name)
+      let resId = element.restaurant.id
+      //console.log(element.restaurant.name)
       let restName = element.restaurant.name
-      console.log(element.restaurant.location.address)
+      //console.log(element.restaurant.location.address)
       let restAddress = element.restaurant.location.address
-      console.log(element.restaurant.timings)
+      //console.log(element.restaurant.timings)
       let restHours = element.restaurant.timings
-      console.log(element.restaurant.url)
+      //console.log(element.restaurant.url)
       let restWebsite = element.restaurant.url
-      console.log(element.restaurant.user_rating.aggregate_rating)
+      //console.log(element.restaurant.user_rating.aggregate_rating)
       let restRating = element.restaurant.user_rating.aggregate_rating
-      console.log(element.restaurant.phone_numbers)
+      //console.log(element.restaurant.phone_numbers)
       let phoneNum = element.restaurant.phone_numbers
       const restaurantInfo =
         `
-    <li>
-    <h3>${restName}</h3> <button id='list-add'>Add to List</button>
+    <li class='restaurant'>
+    <h3>${restName}</h3> <button id='save'>Add to List</button>
     <p>${restRating}</p>
     <a>${restAddress}</a>
     <a href=${phoneNum}>${phoneNum}</a>
@@ -100,15 +103,13 @@ async function getRestaurants(cityId) {
     <a href=${restWebsite}>${restName}'s Webstie</a>
     </li>
     `
+      console.log(restaurantInfo)
       const restInfoContainer = document.querySelector('.search-results')
       restInfoContainer.insertAdjacentHTML("beforeend", restaurantInfo)
 
+
     });
-
-
-
-
-
+    addSaved()
   } catch (err) {
     console.log(err)
   }
@@ -122,6 +123,35 @@ fetchButton.addEventListener('click', (e) => {
   getLocations(userInput.value)
 })
 
+function addSaved() {
+  //ADD TO SAVED 
+  let listButton = document.querySelectorAll('#save')
+  let lists = document.querySelectorAll('.restaurant')
+  console.log(listButton) //is an array!
+  for (i = 0; i < lists.length; i++) {
+    lists[i].className = `restaurant${[i]}`
+    console.log(lists[i])
+  }
+  for (i = 0; i < listButton.length; i++) {
+    listButton[i].className = `save${[i]}`
+    let restaurant = document.querySelector(`.restaurant${i}`)
+    //console.log(listButton[i]) it works! gives each button a different class name ..
+    listButton[i].addEventListener('click', (e) => {
+      e.preventDefault()
+      let divList = document.querySelector('.user-list')
+      divList.append(restaurant)
+    })
+  }
+
+  //let saveButton = document.querySelector(`#save`)
+  //const userList = document.querySelector('.user-list')
+  //saveButton.addEventListener('click', (e) => {
+  //e.preventDefault()
+  //userList.append()
+
+  //})
+
+}
 
 
 //consdier grabbing lat and long from data.restaurant.location(.latitude/longitude) for map placement?
