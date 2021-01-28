@@ -94,14 +94,13 @@ async function getRestaurants(cityId) {
       let phoneNum = element.restaurant.phone_numbers
       const restaurantInfo =
         `  
-      <h3 class='restaurant'>${restName}</h3>
+      <label class='restaurant'>${restName}</label> 
     <div class='restData'>
-    <p>${restRating}</p> 
-    <a>${restAddress}</a>
+    <h2>${restName}</h2> <p id='rating'>Rating: ${restRating}</p> <button id='save'>Add to List</button>  
+    <a>Address: ${restAddress}</a>
     <a href=${restWebsite}>Webstie</a> <br>
-    <button id='save'>Add to List</button>  
       <a href=${phoneNum}>${phoneNum}</a>
-      <p>${restHours}</p> 
+      <p>Hours: ${restHours}</p> 
     </div>
   
         `
@@ -155,6 +154,8 @@ function addSaved() {
       //console.log(divList)
       searchResults.removeChild(delRest) //removes extra data from search
       //console.log(divList)
+
+      makeCheckbox()
     })
 
   }
@@ -170,14 +171,14 @@ function choose() {
     return Math.floor(Math.random() * Math.floor(max));
   }
   let currentChoice = 0;
-  let savedChoices = document.querySelectorAll('.user-list h3')
+  let savedChoices = document.querySelectorAll('.user-list label')
   console.log(savedChoices)
   getRandomInt(savedChoices.length)
   currentChoice = getRandomInt(savedChoices.length);
   console.log(currentChoice)
   console.log(savedChoices[currentChoice].innerText)
   let chosen = document.querySelector('.generated')
-  let newChild = document.createElement('h3')
+  let newChild = document.createElement('label')
   newChild.innerText = savedChoices[currentChoice].innerText
 
   let oldChild = chosen.lastChild
@@ -193,7 +194,7 @@ generatorButton.addEventListener('click', (e) => {
   choose();
   //deleteLastGenerated()
 })
-//consdier grabbing lat and long from data.restaurant.location(.latitude/longitude) for map placement?
+
 function deleteLastGenerated() {
   let chosen = document.querySelector('.generated')
 
@@ -203,6 +204,29 @@ function deleteLastGenerated() {
     chosen.removeChild(chosen.lastChild)
   }
 }
+/// makecheckboxes on List
+
+function makeCheckbox() {
+
+  const yourList = document.querySelector('.user-list')
+  let elements = yourList.querySelectorAll('label')
+  console.log(yourList)
+  console.log(elements)
+  let input = ''
+  for (i = 0; i < elements.length; i++) {
+    input =
+      `<input type='checkbox' name='${elements[i].innerText}'><br>`
+  }
+
+  yourList.insertAdjacentHTML("beforeend", input)
+
+}
+
+
+
+
+
+
 // SIDEBAR FUNCTIONS -- from https://www.w3schools.com/howto/howto_js_sidenav.asp
 function openNav() {
   document.getElementById("sideBar").style.width = "250px";
@@ -214,3 +238,4 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "0";
 }
 
+//consdier grabbing lat and long from data.restaurant.location(.latitude/longitude) for map placement?

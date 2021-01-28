@@ -1,32 +1,30 @@
 header{
-  padding: 15px;
-  margin:10px;
   background-color: white;
+  padding: 10px;
 }
 
 h1{
   color:#588b8b;
   text-align: center;
+  font-size: 50px;
 }
 body{
   background-color: #ffd5c2;
-  justify-content: center;
-  text-align: center;
 }
 footer{
-  position: fixed;
   bottom: 0;
   background-color: white;
 }
 .search-bar{
   content: center;
+  text-align: center;
 
 }
 .search-results{
   flex-flow: column;
   flex: 60%;
   list-style: none;
-  align-content: center;
+  align-content: left;
   color:white;
   padding: 15px;
   margin: 10px;
@@ -51,27 +49,27 @@ button{
   transition: margin-left .5s;
 }
 span{
+  align-content: left;
   top: 0;
   left: 0;
-  position: fixed;
   z-index: 1;
-  font-size:30px;
+  font-size:25px;
   cursor:pointer;
 }
 #sideBar {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 100%;
+  width: 0; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
   left: 0;
-  background-color: #111; /* Black*/
+  background-color: black;
   color: white;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 40px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  overflow-x: hidden; 
+  padding-top: 40px; 
+  transition: 0.5s; 
 }
-a{
+  a{
   color: #588b8b
 }
 .container{
@@ -85,16 +83,24 @@ a{
   padding:5px;
   font-size: 15px;
 }
-.search-results h3{
+.search-results label{
+  color:#ffd5c2;
+}
+.search-results h2{
   color:black;
   text-align: left;
-
 }
 .search-results div{
-border: 2px solid black;
-margin: 10px;
+margin-bottom: 10px;
 background-color: #f28f3B ;
+text-align: left;
+padding:5px;
 }
+.rating{
+  text-align: right;
+  top:0;
+}
+
 @media screen and (max-width: 400px){
 
 .container{
