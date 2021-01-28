@@ -94,10 +94,9 @@ async function getRestaurants(cityId) {
       let phoneNum = element.restaurant.phone_numbers
       const restaurantInfo =
         `  
-    <div class='restaurant' id='restAll'>
-      <label for='name'>${restName}</label> 
-      
-    </div>
+    
+      <h3 class='restaurant'>${restName}</h3>
+    
     <div class='restData'>
       <button id='save'>Add to List</button>
       <p>${restRating}</p>
@@ -153,18 +152,16 @@ function addSaved() {
       let searchResults = document.querySelector('.search-results')
       // let del = document.querySelectorAll('.restaurants')
       divList.append(restaurant)
+      console.log(divList)
       searchResults.removeChild(delRest) //removes extra data from search
       //console.log(divList)
-
     })
+
+
   }
 
 }
-const myList =
-  `
-   <input type='checkbox' value='name'> <br></br>
- `
-let userList = document.querySelectorAll('restaurant')
+
 
 ///GENERATE RANDOM PICK:
 
@@ -174,11 +171,17 @@ function choose() {
     return Math.floor(Math.random() * Math.floor(max));
   }
   let currentChoice = 0;
-  let savedChoices = document.querySelectorAll('#restAll')
+  let savedChoices = document.querySelectorAll('.user-list h3')
+  console.log(savedChoices)
   getRandomInt(savedChoices.length)
   currentChoice = getRandomInt(savedChoices.length);
   console.log(currentChoice)
-  console.log(savedChoices[currentChoice])
+  console.log(savedChoices[currentChoice].innerText)
+  let chosen = document.querySelector('.generator')
+  let h3 = document.createElement('h3')
+  h3.innerText = savedChoices[currentChoice].innerText
+  chosen.append(h3)
+
 }
 
 let generatorButton = document.querySelector('#generate-rest')
@@ -187,7 +190,9 @@ generatorButton.addEventListener('click', (e) => {
   choose();
 })
 //consdier grabbing lat and long from data.restaurant.location(.latitude/longitude) for map placement?
-// SIDEBAR FUNCTIONS
+
+
+// SIDEBAR FUNCTIONS -- from https://www.w3schools.com/howto/howto_js_sidenav.asp
 function openNav() {
   document.getElementById("sideBar").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
