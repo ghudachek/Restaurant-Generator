@@ -16,56 +16,34 @@ async function getLocations(city) {
     //grab city id first...
     let response = await axios.get(`https://developers.zomato.com/api/v2.1/cities?q=${city}&apikey=dc94f6e47c74ca3499a36e0541cb3e65`)
 
+    response.data.location_suggestions.forEach(city => {
 
-    //console.log(cityId)
-    //0 
-    let cityOption0 = {
-      name: response.data.location_suggestions[0].name,
-      id: response.data.location_suggestions[0].id
-    }
-    //1
-    let cityOption1 = {
-      name: response.data.location_suggestions[1].name,
-      id: response.data.location_suggestions[1].id
-    }
-    //console.log(response.data.location_suggestions[1].name)
-    //2  
-    let cityOption2 = {
-      name: response.data.location_suggestions[2].name,
-      id: response.data.location_suggestions[2].id
-    }
-    //console.log(response.data.location_suggestions[2].name)
-    const cityOptions =
-      `
-    <button class='choice-button' id='city-choice0'>${cityOption0.name}</button>
-    <button class='choice-button' id='city-choice1'>${cityOption1.name}</button>
-    <button class='choice-button' id='city-choice2'>${cityOption2.name}</button>
-     `
-    const cityContainer = document.querySelector('.city-options')
-    cityContainer.insertAdjacentHTML('beforeend', cityOptions)
-    //console.log(cityId) make sure it grabs the right one..
+      let cityOption = {
+        name: city.name,
+        id: city.id
+      }
 
-    let selectCity0 = document.querySelector('#city-choice0')
-    selectCity0.addEventListener('click', (e) => {
-      e.preventDefault()
-      //console.log(cityOption0.id) -- grabs correctly
-      getRestaurants(cityOption0.id)
-      deletePrevious()
+      const cityOptions =
+        `  <button class='choice-button' value='${cityOption.id}' id='${cityOption.name}'>${cityOption.name}</button> `
+
+      const cityContainer = document.querySelector('.city-options')
+      cityContainer.insertAdjacentHTML('beforeend', cityOptions)
+
+      console.log(cityOptions)
+
     })
-    let selectCity1 = document.querySelector('#city-choice1')
-    selectCity1.addEventListener('click', (e) => {
-      e.preventDefault()
-      getRestaurants(cityOption1.id)
-      deletePrevious()
-    })
-    let selectCity2 = document.querySelector('#city-choice2')
-    selectCity2.addEventListener('click', (e) => {
-      e.preventDefault()
-      getRestaurants(cityOption2.id)
-      deletePrevious()
-    })
+    let citybutton = document.querySelectorAll('.city-options button')
+    console.log(citybutton)
+    citybutton.forEach(button => {
 
+      button.addEventListener('click', (e) => {
+        e.preventDefault()
+        //console.log(cityOption0.id) -- grabs correctly
+        getRestaurants(button.value)
+        deletePrevious()
+      })
 
+    })
 
 
   } catch (err) {
@@ -217,12 +195,13 @@ function makeCheckbox() {
 
   const yourList = document.querySelector('.user-list')
   let elements = yourList.querySelectorAll('label')
-  console.log(yourList)
-  console.log(elements)
+  //console.log(yourList)
+  //console.log(elements)
   let input = ''
   for (i = 0; i < elements.length; i++) {
     input =
-      `<input type='checkbox' name='${elements[i].innerText}'><br>`
+      `<input type='checkbox' name='${elements[i].innerText}'><br>
+      `
   }
 
   yourList.insertAdjacentHTML("beforeend", input)
@@ -269,7 +248,6 @@ listButton.addEventListener('click', (e) => {
   list.append(label)
   makeCheckbox()
 })
-
 
 
 //consdier grabbing lat and long from data.restaurant.location(.latitude/longitude) for map placement?
