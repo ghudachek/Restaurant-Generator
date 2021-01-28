@@ -137,10 +137,14 @@ fetchButton.addEventListener('click', (e) => {
   getLocations(userInput.value)
 
   function changeCities() {
-    while ()
-  
-}
+    let cityOptions = document.querySelector('.city-options')
+    while (cityOptions.lastChild) {
+      cityOptions.removeChild(cityOptions.lastChild)
+    }
 
+
+  }
+  changeCities()
 
 })
 
