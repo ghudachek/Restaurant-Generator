@@ -7,6 +7,7 @@
 // https://developers.zomato.com/api/v2.1/cities?q=Nashville&apikey=dc94f6e47c74ca3499a36e0541cb3e65
 
 let userInput = document.querySelector('.search')
+let listButton = document.querySelector('#add')
 let fetchButton = document.getElementById('find')
 
 
@@ -64,9 +65,7 @@ async function getLocations(city) {
       deletePrevious()
     })
 
-    // if (cityContainer.lastChild) {
-    //   cityContainer.replaceChild(newChild, oldChild)
-    // } else { chosen.append(newChild) }
+
 
 
   } catch (err) {
@@ -79,7 +78,7 @@ async function getRestaurants(cityId) {
   try {
 
     let restaurantSearch = await axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&apikey=dc94f6e47c74ca3499a36e0541cb3e65`)
-    //console.log(restaurantSearch.data)
+    console.log(restaurantSearch.data)
     // console.log(restaurantSearch.data.restaurants.length)
     //console.log(restaurantSearch.data.restaurants)
     //console.log(restaurantSearch.data.restaurants[1])
@@ -135,15 +134,6 @@ fetchButton.addEventListener('click', (e) => {
   e.preventDefault()
   //console.log(userInput.value)
   getLocations(userInput.value)
-
-  function changeCities() {
-    let cityOptions = document.querySelector('.city-options')
-    while (cityOptions.lastChild) {
-      cityOptions.removeChild(cityOptions.lastChild)
-    }
-
-
-  }
   changeCities()
 
 })
@@ -216,18 +206,11 @@ let generatorButton = document.querySelector('#generate-rest')
 generatorButton.addEventListener('click', (e) => {
   e.preventDefault();
   choose();
-  //deleteLastGenerated()
+
 })
 
-// function deleteLastGenerated() {
-//   let chosen = document.querySelector('.generated')
 
 
-//   console.log(chosen.lastChild)
-//   while (chosen.lastChild) {
-//     chosen.removeChild(chosen.lastChild)
-//   }
-// }
 /// makecheckboxes on List
 
 function makeCheckbox() {
@@ -246,7 +229,7 @@ function makeCheckbox() {
 
 }
 
-//Refresh SEarch Results List on new click!
+//REFRESH BUTTONS AND SEARCHES 
 function deletePrevious() {
   let searchArea = document.querySelector('.search-results')
   //Delete Previous responses....
@@ -255,7 +238,14 @@ function deletePrevious() {
   }
 }
 
+function changeCities() {
+  let cityOptions = document.querySelector('.city-options')
+  while (cityOptions.lastChild) {
+    cityOptions.removeChild(cityOptions.lastChild)
+  }
 
+
+}
 
 // SIDEBAR FUNCTIONS -- from https://www.w3schools.com/howto/howto_js_sidenav.asp
 function openNav() {
@@ -267,5 +257,19 @@ function closeNav() {
   document.getElementById("sideBar").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
 }
+//LET USER ADD TO THE LIST WITH INPUT
+
+listButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  let label = document.createElement('label')
+  let listInput = document.querySelector('.list-add')
+  console.log(listInput.value)
+  label.innerText = listInput.value
+  let list = document.querySelector('.user-list')
+  list.append(label)
+  makeCheckbox()
+})
+
+
 
 //consdier grabbing lat and long from data.restaurant.location(.latitude/longitude) for map placement?
