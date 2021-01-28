@@ -14,7 +14,7 @@ async function getLocations(city) {
   try {
     //grab city id first...
     let response = await axios.get(`https://developers.zomato.com/api/v2.1/cities?q=${city}&apikey=dc94f6e47c74ca3499a36e0541cb3e65`)
-    //use city id to get restaurants...
+
 
     //console.log(cityId)
     //0 
@@ -43,31 +43,38 @@ async function getLocations(city) {
     const cityContainer = document.querySelector('.city-options')
     cityContainer.insertAdjacentHTML('beforeend', cityOptions)
     //console.log(cityId) make sure it grabs the right one..
-    // made need a n option button here for user to select correcr location
 
     let selectCity0 = document.querySelector('#city-choice0')
-
     selectCity0.addEventListener('click', (e) => {
       e.preventDefault()
       //console.log(cityOption0.id) -- grabs correctly
       getRestaurants(cityOption0.id)
+      deletePrevious()
     })
     let selectCity1 = document.querySelector('#city-choice1')
     selectCity1.addEventListener('click', (e) => {
       e.preventDefault()
       getRestaurants(cityOption1.id)
+      deletePrevious()
     })
     let selectCity2 = document.querySelector('#city-choice2')
     selectCity2.addEventListener('click', (e) => {
       e.preventDefault()
       getRestaurants(cityOption2.id)
+      deletePrevious()
     })
+
+    // if (cityContainer.lastChild) {
+    //   cityContainer.replaceChild(newChild, oldChild)
+    // } else { chosen.append(newChild) }
+
 
   } catch (err) {
     console.log(err)
   }
 
 }
+//use city id to get restaurants...
 async function getRestaurants(cityId) {
   try {
 
@@ -96,11 +103,15 @@ async function getRestaurants(cityId) {
         `  
       <label class='restaurant'>${restName}</label> 
     <div class='restData'>
-    <h2>${restName}</h2> <p id='rating'>Rating: ${restRating}</p> <button id='save'>Add to List</button>  
-    <a>Address: ${restAddress}</a>
-    <a href=${restWebsite}>Webstie</a> <br>
-      <a href=${phoneNum}>${phoneNum}</a>
-      <p>Hours: ${restHours}</p> 
+    <h2>${restName}: <a id='rating'>${restRating} &#9733s</a> </h2>
+    <button id='save'>Add to List</button>  
+    <p>Hours: ${restHours}</p> 
+    <a>&#9900 Address: ${restAddress}</a><br>
+    <a> &#9900 </a>
+    <a href=${restWebsite}> Webstie</a> <br>
+    <a>&#9900 </a>  
+    <a href=${phoneNum}>${phoneNum}</a>
+      
     </div>
   
         `
@@ -111,6 +122,8 @@ async function getRestaurants(cityId) {
 
     });
     addSaved()
+
+
   } catch (err) {
     console.log(err)
   }
@@ -122,6 +135,13 @@ fetchButton.addEventListener('click', (e) => {
   e.preventDefault()
   //console.log(userInput.value)
   getLocations(userInput.value)
+
+  function changeCities() {
+    while ()
+  
+}
+
+
 })
 
 ///////
@@ -178,11 +198,11 @@ function choose() {
   console.log(currentChoice)
   console.log(savedChoices[currentChoice].innerText)
   let chosen = document.querySelector('.generated')
-  let newChild = document.createElement('label')
+  let newChild = document.createElement('h3')
   newChild.innerText = savedChoices[currentChoice].innerText
 
   let oldChild = chosen.lastChild
-
+  //Replacement of Generated Restaurant
   if (chosen.lastChild) {
     chosen.replaceChild(newChild, oldChild)
   } else { chosen.append(newChild) }
@@ -195,15 +215,15 @@ generatorButton.addEventListener('click', (e) => {
   //deleteLastGenerated()
 })
 
-function deleteLastGenerated() {
-  let chosen = document.querySelector('.generated')
+// function deleteLastGenerated() {
+//   let chosen = document.querySelector('.generated')
 
 
-  console.log(chosen.lastChild)
-  while (chosen.lastChild) {
-    chosen.removeChild(chosen.lastChild)
-  }
-}
+//   console.log(chosen.lastChild)
+//   while (chosen.lastChild) {
+//     chosen.removeChild(chosen.lastChild)
+//   }
+// }
 /// makecheckboxes on List
 
 function makeCheckbox() {
@@ -222,8 +242,14 @@ function makeCheckbox() {
 
 }
 
-
-
+//Refresh SEarch Results List on new click!
+function deletePrevious() {
+  let searchArea = document.querySelector('.search-results')
+  //Delete Previous responses....
+  while (searchArea.lastChild) {
+    searchArea.removeChild(searchArea.lastChild)
+  }
+}
 
 
 

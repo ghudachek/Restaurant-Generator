@@ -1,33 +1,58 @@
 header{
+  top:0;
   background-color: white;
   padding: 10px;
+  background-image: url(./images/kevin-doran-OtdNWHGRvfI-unsplash.jpg);
+  background-size: cover;
 }
-
+button:hover{
+background-color: #588b8bd7;
+}
+.city-options button:hover {
+  background-color: #588b8bd7;
+}
+.city-options{
+  text-align: center;
+  padding: 5px;
+}
+#find{
+  margin:20px;
+  font-size: 18px;
+}
+input{
+  font-size: 15px;
+  padding: 5px;
+}
 h1{
-  color:#588b8b;
+  color: white;
   text-align: center;
   font-size: 50px;
+  font-family: 'Luckiest Guy', cursive;;
 }
 body{
   background-color: #ffd5c2;
+  
 }
 footer{
   bottom: 0;
-  background-color: white;
 }
 .search-bar{
   content: center;
   text-align: center;
 
 }
+#generate-rest{
+  background-color: #588b8b;
+}
 .search-results{
   flex-flow: column;
-  flex: 60%;
+  flex: 50%;
   list-style: none;
   align-content: left;
   color:white;
   padding: 15px;
   margin: 10px;
+  font-family: 'Kanit', sans-serif;
   
 }
 button{
@@ -37,6 +62,11 @@ button{
 }
 .choice-button{
   margin-top: 20px;
+}
+.restData{
+
+padding: 20px;
+
 }
 #sideBar .closebtn {
   position: absolute;
@@ -55,6 +85,7 @@ span{
   z-index: 1;
   font-size:25px;
   cursor:pointer;
+  font-family: 'Poiret One', cursive;
 }
 #sideBar {
   height: 100%;
@@ -63,7 +94,7 @@ span{
   z-index: 1; 
   top: 0; 
   left: 0;
-  background-color: black;
+  background-color: #141313;
   color: white;
   overflow-x: hidden; 
   padding-top: 40px; 
@@ -76,13 +107,15 @@ span{
   display: flex;
 }
 .user-list, .generator{
+  font-family: 'Poiret One';
   align-self:flex-start;
+  text-align: center;
   flex:40%;
-  border: 2px solid black;
   margin: 5px;
   padding:5px;
   font-size: 15px;
 }
+
 .search-results label{
   color:#ffd5c2;
 }
@@ -96,10 +129,7 @@ background-color: #f28f3B ;
 text-align: left;
 padding:5px;
 }
-.rating{
-  text-align: right;
-  top:0;
-}
+
 
 @media screen and (max-width: 400px){
 
