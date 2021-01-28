@@ -36,9 +36,9 @@ async function getLocations(city) {
     //console.log(response.data.location_suggestions[2].name)
     const cityOptions =
       `
-    <button id='city-choice0'>${cityOption0.name}</button>
-    <button id='city-choice1'>${cityOption1.name}</button>
-    <button id='city-choice2'>${cityOption2.name}</button>
+    <button class='choice-button' id='city-choice0'>${cityOption0.name}</button>
+    <button class='choice-button' id='city-choice1'>${cityOption1.name}</button>
+    <button class='choice-button' id='city-choice2'>${cityOption2.name}</button>
      `
     const cityContainer = document.querySelector('.city-options')
     cityContainer.insertAdjacentHTML('beforeend', cityOptions)
@@ -94,17 +94,16 @@ async function getRestaurants(cityId) {
       let phoneNum = element.restaurant.phone_numbers
       const restaurantInfo =
         `  
-    
       <h3 class='restaurant'>${restName}</h3>
-    
     <div class='restData'>
-      <button id='save'>Add to List</button>
-      <p>${restRating}</p>
-      <a>${restAddress}</a>
+    <p>${restRating}</p> 
+    <a>${restAddress}</a>
+    <a href=${restWebsite}>Webstie</a> <br>
+    <button id='save'>Add to List</button>  
       <a href=${phoneNum}>${phoneNum}</a>
-      <p>${restHours}</p>
-      <a href=${restWebsite}>${restName}'s Webstie</a>
+      <p>${restHours}</p> 
     </div>
+  
         `
       // console.log(restaurantInfo)
       const restInfoContainer = document.querySelector('.search-results')
@@ -144,19 +143,19 @@ function addSaved() {
     listButton[i].className = `save${[i]} `
     let restaurant = document.querySelector(`.restaurant${i}`)
     let delRest = document.querySelector(`.restData${i}`)
-    console.log(delRest)
+    //console.log(delRest)
     //console.log(listButton[i]) it works! gives each button a different class name ..
     listButton[i].addEventListener('click', (e) => {
       e.preventDefault()
       let divList = document.querySelector('.user-list')
       let searchResults = document.querySelector('.search-results')
       // let del = document.querySelectorAll('.restaurants')
+      console.log(searchResults)
       divList.append(restaurant)
-      console.log(divList)
+      //console.log(divList)
       searchResults.removeChild(delRest) //removes extra data from search
       //console.log(divList)
     })
-
 
   }
 
@@ -177,21 +176,33 @@ function choose() {
   currentChoice = getRandomInt(savedChoices.length);
   console.log(currentChoice)
   console.log(savedChoices[currentChoice].innerText)
-  let chosen = document.querySelector('.generator')
-  let h3 = document.createElement('h3')
-  h3.innerText = savedChoices[currentChoice].innerText
-  chosen.append(h3)
+  let chosen = document.querySelector('.generated')
+  let newChild = document.createElement('h3')
+  newChild.innerText = savedChoices[currentChoice].innerText
 
+  let oldChild = chosen.lastChild
+
+  if (chosen.lastChild) {
+    chosen.replaceChild(newChild, oldChild)
+  } else { chosen.append(newChild) }
 }
 
 let generatorButton = document.querySelector('#generate-rest')
 generatorButton.addEventListener('click', (e) => {
   e.preventDefault();
   choose();
+  //deleteLastGenerated()
 })
 //consdier grabbing lat and long from data.restaurant.location(.latitude/longitude) for map placement?
+function deleteLastGenerated() {
+  let chosen = document.querySelector('.generated')
 
 
+  console.log(chosen.lastChild)
+  while (chosen.lastChild) {
+    chosen.removeChild(chosen.lastChild)
+  }
+}
 // SIDEBAR FUNCTIONS -- from https://www.w3schools.com/howto/howto_js_sidenav.asp
 function openNav() {
   document.getElementById("sideBar").style.width = "250px";

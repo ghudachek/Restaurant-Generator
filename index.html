@@ -12,14 +12,15 @@
 
 <body>
   <main id='main'>
-
-    <h1>Restaurant Generator</h1>
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+    <header>
+      <h1>Restaurant Generator</h1>
+      <span onclick="openNav()">&#9776; open</span>
+    </header>
 
     <div class='search-bar'>
 
       <input type='text' class='search' placeholder="city">
-      <button id='find'>Find</button>
+      <button id='find'>Find</button><br>
       <div class='city-options'></div>
     </div>
 
@@ -39,14 +40,20 @@
 
 
         </div>
-        <div class='generator'>
+        <section class='generator'>
           <h2>Where Will You Go?!</h2>
           <button id='generate-rest'>Choose For Me</button>
-        </div>
+          <div class='generated'>
+
+
+          </div>
+        </section>
       </section>
     </div>
   </section>
-
+  <footer>
+    <p>Gracen Hudachek</p>
+  </footer>
 </body>
 
 </html>
