@@ -1,19 +1,19 @@
 
-//let API_KEY = dc94f6e47c74ca3499a36e0541cb3e65
+// API_KEY = dc94f6e47c74ca3499a36e0541cb3e65
 
 
 
-//gets city ID:
 // https://developers.zomato.com/api/v2.1/cities?q=Nashville&apikey=dc94f6e47c74ca3499a36e0541cb3e65
+//GLOBAL VARIABLES:
+const userInput = document.querySelector('.search')
+const listButton = document.querySelector('#add')
+const fetchButton = document.getElementById('find')
 
-let userInput = document.querySelector('.search')
-let listButton = document.querySelector('#add')
-let fetchButton = document.getElementById('find')
 
-
+//GET CITY ID:
 async function getLocations(city) {
   try {
-    //grab city id first...
+
     let response = await axios.get(`https://developers.zomato.com/api/v2.1/cities?q=${city}&apikey=dc94f6e47c74ca3499a36e0541cb3e65`)
 
     response.data.location_suggestions.forEach(city => {
@@ -243,6 +243,17 @@ function closeNav() {
   document.getElementById("footer").style.marginLeft = "0";
 }
 
+function openNavSmall() {
+  document.getElementById("sideBar").style.width = "100%";
+  document.getElementById("main").style.marginLeft = "100%";
+  document.getElementById("footer").style.marginLeft = "100%"
+}
+
+function closeNavSmall() {
+  document.getElementById("sideBar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.getElementById("footer").style.marginLeft = "0";
+}
 
 //LET USER ADD TO THE LIST WITH INPUT
 

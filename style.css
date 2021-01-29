@@ -40,7 +40,20 @@ input{
   font-size: 15px;
   padding: 5px;
 }
-
+input[type=text] {
+  text-align: center;
+  font-family: 'Kanit';
+  font-size: 12px;
+  border: 5px solid #ffd5c2;
+  border-radius: 4px;
+}
+input.search[type=text] {
+  border: 5px solid #588b8b;
+  border-radius: 4px;
+}
+input[type=text]:focus {
+  width: 30%;
+}
 h1{
   color: white;
   text-align: center;
@@ -99,12 +112,12 @@ padding: 20px;
 }
 .container h2{
   font-size: 25px;
+  border-bottom: 2px solid black;
 }
 #sideBar {
   height: 100%;
   width: 20%; 
   position: fixed; 
-  z-index: 1; 
   top: 0; 
   left: 0;
   background-image: url(./images/diane-alkier-yRUot5SCD28-unsplash.jpg);
@@ -124,7 +137,25 @@ padding: 20px;
   font-size: 20px;
   margin-left: 50px;
 }
-  
+.openbtn{
+  color:white;
+}
+.openbtnSmall{
+  visibility: hidden;
+  top: 0;
+  color:white;
+  top: 0;
+  margin-left: 0;
+  left:0;
+  font-size: 15px;
+}
+.closebtnSmall{
+  top: 0;
+  margin-left: 0;
+  left:0;
+  font-size: 15px;
+  visibility: hidden;
+}
 .generator{
   font-family: 'Poiret One';
   align-self:flex-start;
@@ -133,7 +164,6 @@ padding: 20px;
   margin: 0px;
   padding:5px;
   font-size: 20px;
-  
 }
 .input-list{
   margin-bottom: 15px;
@@ -147,11 +177,11 @@ padding: 20px;
   margin-bottom: 20px;
   font-size: 25px;
 }
-.generated{
+.generator{
   font-family: 'Poiret One';
   margin-bottom: 20px;
   font-size: 25px;
-  background-color:   rgba(255, 255, 255, 0.76);
+  background-color: rgba(255, 255, 255, 0.76);
 }
 
 .search-results label{
@@ -226,4 +256,21 @@ padding:5px;
   font-size: 12px;
   background-color:   rgba(255, 255, 255, 0.76);
 }
+#sideBar .closebtn {
+  visibility: hidden;
+ }
+ .openbtn{
+   visibility: hidden;
+ }
+ .openbtnSmall{
+   color:white;
+   visibility: visible;
+ }
+ .closebtnSmall{
+   visibility: visible;
+ }
 }
+
+
+
+  
