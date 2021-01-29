@@ -118,8 +118,8 @@ fetchButton.addEventListener('click', (e) => {
 })
 
 ///////
-///ADDS ONE LI UNIT (RESTAURANT TO SAVED PERSONAL LIST)
-/// does so by changing the button and li to each have a different (numbered) classname to select seperatley
+///ADDS ONE list item (RESTAURANT TO SAVED PERSONAL LIST)
+/// does so by changing the button and li to each have a different (numbered) classname to select seperately
 function addSaved() {
   //ADD TO SAVED 
   let listButton = document.querySelectorAll('#save')
@@ -142,7 +142,7 @@ function addSaved() {
       let divList = document.querySelector('.user-list')
       let searchResults = document.querySelector('.search-results')
       // let del = document.querySelectorAll('.restaurants')
-      console.log(searchResults)
+      //console.log(searchResults)
       divList.append(restaurant)
       //console.log(divList)
       searchResults.removeChild(delRest) //removes extra data from search
@@ -228,15 +228,19 @@ function changeCities() {
 }
 
 // SIDEBAR FUNCTIONS -- from https://www.w3schools.com/howto/howto_js_sidenav.asp
+
+
+
 function openNav() {
-  document.getElementById("sideBar").style.width = "300px";
-  document.getElementById("main").style.marginLeft = "300px";
+  document.getElementById("sideBar").style.width = "30%";
+  document.getElementById("main").style.marginLeft = "30%";
 }
 
 function closeNav() {
   document.getElementById("sideBar").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
 }
+
 
 //LET USER ADD TO THE LIST WITH INPUT
 

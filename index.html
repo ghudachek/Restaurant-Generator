@@ -14,11 +14,12 @@
   <title>Restaurant Generator</title>
 </head>
 
+
 <body>
 
   <main id='main'>
     <header>
-      <span onclick="openNav()">&#9776; Your List</span>
+      <span class='openbtn' onclick="openNav()">&#9776; Your List</span>
       <h1>Restaurant Generator</h1>
     </header>
 
@@ -29,35 +30,36 @@
       <div class='city-options'></div>
     </div>
 
+    <ul class='search-results'></ul>
 
-    <div class='column'>
-      <ul class='search-results'></ul>
-    </div>
   </main>
 
   <section class='container'>
-    <div class='column'>
-      <section id='sideBar'>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;Close</a>
-        <div class='user-list'>
 
-          <h2>Your List</h2>
-          <input class='list-add' type="text" placeholder="add to List">
-          <button id='add'>Add</button>
+    <section id='sideBar'>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;Close</a>
+      <h2>Your List</h2>
+      <div class='input-list'><input class='list-add' type="text" placeholder="add to List">
+        <button id='add'>Add</button><br>
+      </div>
+      <div class='user-list'>
+      </div>
+      <section class='generator'>
+        <h2>Where Will You Go?!</h2>
+        <button id='generate-rest'>Choose For Me</button>
+        <div class='generated'>
         </div>
-        <section class='generator'>
-          <h2>Where Will You Go?!</h2>
-          <button id='generate-rest'>Choose For Me</button>
-          <div class='generated'>
-
-
-          </div>
-        </section>
       </section>
-    </div>
+
+    </section>
+
   </section>
   <footer>
     <p> &#169 Gracen Hudachek</p>
+    <p> Photos by: <a href='https://unsplash.com/@dianealkier'>Diane Alkier</a> &
+      <a href="https://unsplash.com/@kfitzdor">Kevin Doran</a> on Unsplash
+    </p>
+
   </footer>
 </body>
 

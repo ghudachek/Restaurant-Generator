@@ -20,6 +20,7 @@ background-color: #588b8bd7;
   font-size: 18px;
 }
 input{
+  justify-content: inherit;
   font-size: 15px;
   padding: 5px;
 }
@@ -31,7 +32,7 @@ h1{
 }
 body{
   background-color: #ffd5c2;
-  
+  margin:0;
 }
 footer{
   bottom: 0;
@@ -39,7 +40,6 @@ footer{
 .search-bar{
   content: center;
   text-align: center;
-
 }
 #generate-rest{
   background-color: #588b8b;
@@ -53,7 +53,6 @@ footer{
   padding: 15px;
   margin: 10px;
   font-family: 'Kanit', sans-serif;
-  
 }
 button{
   background-color: #588b8b;
@@ -64,11 +63,10 @@ button{
   margin-top: 20px;
 }
 .restData{
-
 padding: 20px;
-
 }
 #sideBar .closebtn {
+  visibility: hidden;
   position: absolute;
   top: 0;
   right: 25px;
@@ -76,6 +74,7 @@ padding: 20px;
   margin-left: 50px;
 }
 #main {
+  margin-left: 30%;
   transition: margin-left .5s;
 }
 span{
@@ -89,18 +88,20 @@ span{
 }
 #sideBar {
   height: 100%;
-  width: 0; 
+  width: 30%; 
   position: fixed; 
   z-index: 1; 
   top: 0; 
   left: 0;
-  background-color: #141313;
   background-image: url(./images/diane-alkier-yRUot5SCD28-unsplash.jpg);
   background-size: cover;
   color:black;
   overflow-x: hidden; 
-  padding-top: 40px; 
+  padding-top: 20px; 
   transition: 0.5s; 
+  font-family: 'Poiret One';
+  align-self:flex-start;
+  text-align: center;
 }
   a{
   color: #588b8b
@@ -108,16 +109,42 @@ span{
 .container{
   display: flex;
 }
-.user-list, .generator{
+.container h2{
+  font-size: 30px;
+}
+.generator{
   font-family: 'Poiret One';
   align-self:flex-start;
   text-align: center;
   flex:40%;
   margin: 0px;
   padding:5px;
-  font-size: 15px;
+  font-size: 20px;
+  
 }
-
+.input-list{
+  margin-bottom: 15px;
+}
+.user-list{
+  margin-bottom: 30%;
+  background-color:   rgba(255, 255, 255, 0.76);
+}
+.user-list label{
+  font-family: 'Poiret One';
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+.generated{
+  font-family: 'Poiret One';
+  margin-bottom: 20px;
+  font-size: 25px;
+  background-color:   rgba(255, 255, 255, 0.76);
+}
+footer{
+background-color: #f28f3B ;
+margin-top: 100%;
+margin-bottom: 0;
+}
 
 .search-results label{
   color:#ffd5c2;
@@ -132,19 +159,68 @@ background-color: #f28f3B ;
 text-align: left;
 padding:5px;
 }
-
-img:hover{
-Photo by Diane Alkier on Unsplash}
-
-@media screen and (max-width: 400px){
-
-#main {
-position: fixed;
+.openbtn{
+  visibility: hidden;
 }
+@media screen and (max-width: 700px){
 
+.openbtn{
+  visibility: visible;
+}
 .container{
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
+}
+#sideBar{
+  padding-top: 20px; 
 }
 
+.user-list, .generator{
+  justify-content: space-around;
+  text-align: center;
+  flex:40%;
+  margin: 0px;
+  padding:5px;
+  font-size: 10px;
+}
+.user-list{
+  margin-bottom: 30%;
+}
+button{
+  font-size: 12px;
+}
+#find{
+  margin:20px;
+  font-size: 12px;
+}
+h1{
+  flex-flow: row;
+  font-size: 30px;
+  justify-content: space-evenly;
+  background-size: cover;
+}
+header{
+  display: flex;
+  flex: 100%;
+}
+span{
+  font-size: 12px;
+}
+input{
+  justify-content: inherit;
+  font-size: 12px;
+}
+#sideBar .closebtn {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 20px;
+  margin-left: 25px;
+  font-size: 12px;
+}
+.user-list label{
+  font-size: 15px;
+  
+}
 }
