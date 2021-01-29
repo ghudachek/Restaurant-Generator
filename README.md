@@ -58,22 +58,21 @@ API: https://developers.zomato.com/api
 - Allow users to search for Restaurants in their area given a zip-code.
 - Incorporate restaurant data listed above into a clean readable design on webpage(CSS/flexbox).
 - Give users the option to create their own seperate list of "saved" or "liked restaurants.
-- Give users the ability to checkoff from their list and rate the Restaurant on their list -only to show functionality!(will not be able to save user data on refresh).
+- Give users the ability to checkoff from their list -only to show functionality!(will not be able to save user data on refresh).
 - Give users the ability to generate a randomly picked restaurant from their liked list as a way to choose where they may eat next.
 
 #### PostMVP  
 - Use a map API to generate a map of user chosen location with list of restaurants on it.
-- Give users the ability to add other restaurants to their list (even if they weren't listed on the search?).
--Local store saving??
+- Give users the ability to add their own restaurants to their list(write in response).
 ## Project Schedule
 
 |  Day | Deliverable | Status
 |---|---| ---|
 |Jan 25-26| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
-|Jan 26| Project Approval / Psuedocode layout of HTML,JS,CSS/ Boilerplate HTML&JS w/ API grab functioning/| Incomplete
-|Jan 27| Link API data to html elements and get user search section functioning. | Incomplete
-|Jan 28| Create 'saved list' for user add JS functions: button, rating, checkoff,random generator. | Incomplete
-|Jan 29| Have all MVPs completed by end of the day | Incomplete
+|Jan 26| Project Approval / Psuedocode layout of HTML,JS,CSS/ Boilerplate HTML&JS w/ API grab functioning/| Complete
+|Jan 27| Link API data to html elements and get user search section functioning. | Complete
+|Jan 28| Create 'saved list' for user add JS functions: button, checkoff,random generator. | Complete
+|Jan 29| Have all MVPs completed by end of the day | Complete
 |Feb 1| Presentations/Project Submission | Incomplete
 
 ## Priority Matrix
@@ -88,25 +87,50 @@ API: https://developers.zomato.com/api
 | Create HTML boiler| H | 0.5hrs| hrs | hrs |
 | Link JS data to search button, and create search output (JS to HTML) | H | 3hrs| hrs | hrs |
 | Create "add" button(linked to restaurants) to  add to saved list | H | 3hrs| hrs | hrs |
-| Create rating section and check-off boxes too saved list| H | 3hrs| hrs | hrs |
-| Create random restaurant generator button | H | 3hrs| hrs | hrs |
+| Create Nav Bar for Saved list | H | 3hrs| hrs | hrs |
+| Create check-off boxes too saved list| H | 3hrs| hrs | hrs |
+| Create delete buttons for search results area | H | 3hrs| hrs | hrs |
+| Get input sections to delete old input on button click | H | 0.5hrs| hrs | hrs |
 | Add flexbox CSS to saved list and main search fields of webpage | H | 3hrs| hrs | hrs |
-| Create MediaQuery to move saved list to a side menu option | H | 3hrs| hrs | hrs |
-| Advance CSS to add style | H | 3hrs| hrs | hrs |
-| Create map: add from API| H | 3hrs| hrs | hrs |
-| Get map to show listed restaurants on it | H | 3hrs| hrs | hrs |
-| Have map toggle per user preference(hide unless clicked on) | H | 1.5hrs| hrs | hrs |
+| Create MediaQuery to properly size elements on page | H | 3hrs| hrs | hrs |
+
 | Total | H | 30hrs| hrs | hrs |
 
 ## Code Snippet
+My API requires you to grab restaurants by a city id that they have coded into each city. This required me to grab the city ids first before grabbing the restaurants. When searching cities a list of 1- 10+ options can come up. At first, my grab city Id function could only grab 1-3 city options. I decided to rewrite it and was happy with my result. It now grabs all city options and presents them to the user. It also simplified the code compared to the previous.
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
+response.data.location_suggestions.forEach(city => {
 
-```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
-```
+      let cityOption = {
+        name: city.name,
+        id: city.id
+      }
+
+      const cityOptions =
+        `  <button class='choice-button' value='${cityOption.id}' id='${cityOption.name}'>${cityOption.name}</button> `
+
+      const cityContainer = document.querySelector('.city-options')
+      cityContainer.insertAdjacentHTML('beforeend', cityOptions)
+
+      console.log(cityOptions)
+
+    })
+    let citybutton = document.querySelectorAll('.city-options button')
+    console.log(citybutton)
+    citybutton.forEach(button => {
+
+      button.addEventListener('click', (e) => {
+        e.preventDefault()
+        //console.log(cityOption0.id) -- grabs correctly
+        getRestaurants(button.value)
+        deletePrevious()
+      })
+
+    })
+
+
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ - got rid of the user ability to add rating to their saved list for sake of simplier, clean NavBar.
+ - ended up not having time to add maps function 
+ 
