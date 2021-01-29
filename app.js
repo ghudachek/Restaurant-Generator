@@ -112,6 +112,7 @@ fetchButton.addEventListener('click', (e) => {
   e.preventDefault()
   //console.log(userInput.value)
   getLocations(userInput.value)
+  userInput.value = ''
   changeCities()
 
 })
@@ -228,25 +229,29 @@ function changeCities() {
 
 // SIDEBAR FUNCTIONS -- from https://www.w3schools.com/howto/howto_js_sidenav.asp
 function openNav() {
-  document.getElementById("sideBar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("sideBar").style.width = "300px";
+  document.getElementById("main").style.marginLeft = "300px";
 }
 
 function closeNav() {
   document.getElementById("sideBar").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
 }
+
 //LET USER ADD TO THE LIST WITH INPUT
 
 listButton.addEventListener('click', (e) => {
   e.preventDefault();
   let label = document.createElement('label')
   let listInput = document.querySelector('.list-add')
-  console.log(listInput.value)
-  label.innerText = listInput.value
-  let list = document.querySelector('.user-list')
-  list.append(label)
-  makeCheckbox()
+  //console.log(listInput.value)
+  if (listInput.value !== '') {
+    label.innerText = listInput.value
+    let list = document.querySelector('.user-list')
+    list.append(label)
+    listInput.value = ''
+    makeCheckbox()
+  }
 })
 
 

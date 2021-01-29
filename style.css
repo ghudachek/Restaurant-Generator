@@ -95,7 +95,9 @@ span{
   top: 0; 
   left: 0;
   background-color: #141313;
-  color: white;
+  background-image: url(./images/diane-alkier-yRUot5SCD28-unsplash.jpg);
+  background-size: cover;
+  color:black;
   overflow-x: hidden; 
   padding-top: 40px; 
   transition: 0.5s; 
@@ -111,10 +113,11 @@ span{
   align-self:flex-start;
   text-align: center;
   flex:40%;
-  margin: 5px;
+  margin: 0px;
   padding:5px;
   font-size: 15px;
 }
+
 
 .search-results label{
   color:#ffd5c2;
@@ -130,13 +133,18 @@ text-align: left;
 padding:5px;
 }
 
+img:hover{
+Photo by Diane Alkier on Unsplash}
 
 @media screen and (max-width: 400px){
+
+#main {
+position: fixed;
+}
 
 .container{
   display: flex;
   flex-flow: column wrap;
-  background-color: cornsilk;
 }
 
 }
