@@ -1,3 +1,9 @@
+a{
+  color: #588b8b
+}
+footer a img{
+  padding: 5px;
+}
 header{
   top:0;
   background-color: white;
@@ -5,15 +11,25 @@ header{
   background-image: url(./images/kevin-doran-OtdNWHGRvfI-unsplash.jpg);
   background-size: cover;
 }
+button{
+  background-color: #588b8b;
+  border-style: none;
+  padding:10px;
+}
 button:hover{
 background-color: #588b8bd7;
+}
+.choice-button{
+  margin-top: 20px;
 }
 .city-options button:hover {
   background-color: #588b8bd7;
 }
-.city-options{
-  text-align: center;
-  padding: 5px;
+#generate-rest{
+  background-color: #588b8b;
+}
+#generate-rest:hover{
+  background-color: #588b8bd7;
 }
 #find{
   margin:20px;
@@ -24,6 +40,7 @@ input{
   font-size: 15px;
   padding: 5px;
 }
+
 h1{
   color: white;
   text-align: center;
@@ -32,17 +49,33 @@ h1{
 }
 body{
   background-color: #ffd5c2;
-  margin:0;
+  margin:0 auto;
 }
-footer{
+span{
+  align-content: left;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  font-size:25px;
+  cursor:pointer;
+  font-family: 'Poiret One', cursive;
+}
+#footer{
   bottom: 0;
-}
+  margin-bottom: 0;
+  text-align: center;
+  padding: 5px 10px ;
+  background-color: #f28f3B ;
+  margin-top: 100%;
+  transition: margin-left .5s;
+  }
 .search-bar{
   content: center;
   text-align: center;
 }
-#generate-rest{
-  background-color: #588b8b;
+.city-options{
+  text-align: center;
+  padding: 5px;
 }
 .search-results{
   flex-flow: column;
@@ -54,41 +87,22 @@ footer{
   margin: 10px;
   font-family: 'Kanit', sans-serif;
 }
-button{
-  background-color: #588b8b;
-  border-style: none;
-  padding:10px;
-}
-.choice-button{
-  margin-top: 20px;
-}
 .restData{
 padding: 20px;
 }
-#sideBar .closebtn {
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 20px;
-  margin-left: 50px;
-}
 #main {
-  margin-left: 30%;
+  margin-left: 20%;
   transition: margin-left .5s;
 }
-span{
-  align-content: left;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  font-size:25px;
-  cursor:pointer;
-  font-family: 'Poiret One', cursive;
+.container{
+  display: flex;
+}
+.container h2{
+  font-size: 25px;
 }
 #sideBar {
   height: 100%;
-  width: 30%; 
+  width: 20%; 
   position: fixed; 
   z-index: 1; 
   top: 0; 
@@ -103,15 +117,14 @@ span{
   align-self:flex-start;
   text-align: center;
 }
-  a{
-  color: #588b8b
+#sideBar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 20px;
+  margin-left: 50px;
 }
-.container{
-  display: flex;
-}
-.container h2{
-  font-size: 30px;
-}
+  
 .generator{
   font-family: 'Poiret One';
   align-self:flex-start;
@@ -140,11 +153,6 @@ span{
   font-size: 25px;
   background-color:   rgba(255, 255, 255, 0.76);
 }
-footer{
-background-color: #f28f3B ;
-margin-top: 100%;
-margin-bottom: 0;
-}
 
 .search-results label{
   color:#ffd5c2;
@@ -159,68 +167,63 @@ background-color: #f28f3B ;
 text-align: left;
 padding:5px;
 }
-.openbtn{
-  visibility: hidden;
-}
-@media screen and (max-width: 700px){
 
-.openbtn{
-  visibility: visible;
-}
+@media screen and (max-width: 700px){
+  h1{
+    font-size: 30px;
+    justify-content: space-evenly;
+    background-size: cover;
+  }
+  h2{
+    font-size: 15px;
+  }
+  span{
+    font-size: 12px;
+  }
+  input{
+    justify-content: inherit;
+    font-size: 12px;
+  }
 .container{
   display: flex;
   flex-flow: column;
 }
-#sideBar{
-  padding-top: 20px; 
-}
-
-.user-list, .generator{
-  justify-content: space-around;
-  text-align: center;
-  flex:40%;
-  margin: 0px;
-  padding:5px;
-  font-size: 10px;
-}
-.user-list{
-  margin-bottom: 30%;
-}
-button{
+#add{
   font-size: 12px;
+  padding:10px;
 }
 #find{
   margin:20px;
   font-size: 12px;
 }
-h1{
-  flex-flow: row;
-  font-size: 30px;
-  justify-content: space-evenly;
-  background-size: cover;
+#sideBar{
+  padding-top: 20px; 
+  justify-content: space-around;
+  text-align: center;
+  margin: 0px;
 }
-header{
-  display: flex;
-  flex: 100%;
-}
-span{
-  font-size: 12px;
-}
-input{
-  justify-content: inherit;
-  font-size: 12px;
+#sideBar h2{
+  font-size: 18px;
 }
 #sideBar .closebtn {
-  visibility: visible;
-  position: absolute;
   top: 0;
   right: 10px;
   font-size: 20px;
   margin-left: 25px;
   font-size: 12px;
 }
+.user-list{
+  margin-bottom: 30%;
+  padding: 5px;
+}
+
 .user-list label{
-  font-size: 15px;
-  
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+.generated{
+  margin-bottom: 10px;
+  font-size: 12px;
+  background-color:   rgba(255, 255, 255, 0.76);
 }
 }

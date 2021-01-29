@@ -234,11 +234,13 @@ function changeCities() {
 function openNav() {
   document.getElementById("sideBar").style.width = "30%";
   document.getElementById("main").style.marginLeft = "30%";
+  document.getElementById("footer").style.marginLeft = "30%"
 }
 
 function closeNav() {
   document.getElementById("sideBar").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
+  document.getElementById("footer").style.marginLeft = "0";
 }
 
 
