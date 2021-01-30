@@ -2,7 +2,6 @@
 // API_KEY = dc94f6e47c74ca3499a36e0541cb3e65
 
 
-
 // https://developers.zomato.com/api/v2.1/cities?q=Nashville&apikey=dc94f6e47c74ca3499a36e0541cb3e65
 //GLOBAL VARIABLES:
 const userInput = document.querySelector('.search')

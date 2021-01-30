@@ -83,18 +83,20 @@ API: https://developers.zomato.com/api
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding JS to grab data from API | H | 1hrs| hrs | hrs |
-| Create HTML boiler| H | 0.5hrs| hrs | hrs |
-| Link JS data to search button, and create search output (JS to HTML) | H | 3hrs| hrs | hrs |
-| Create "add" button(linked to restaurants) to  add to saved list | H | 3hrs| hrs | hrs |
-| Create Nav Bar for Saved list | H | 3hrs| hrs | hrs |
-| Create check-off boxes too saved list| H | 3hrs| hrs | hrs |
-| Create delete buttons for search results area | H | 3hrs| hrs | hrs |
-| Get input sections to delete old input on button click | H | 0.5hrs| hrs | hrs |
-| Add flexbox CSS to saved list and main search fields of webpage | H | 3hrs| hrs | hrs |
-| Create MediaQuery to properly size elements on page | H | 3hrs| hrs | hrs |
+| Adding JS to grab data from API | H | 1hrs| 0.5hrs | 0.5hrs |
+| Create HTML boiler| H | 0.5hrs| 0.5hrs | 0.5hrs |
+| Link JS data to search button, and create search output (JS to HTML) | H | 3hrs| 3hrs | 3hrs |
+| Create "add" button(linked to restaurants) to  add to saved list | H | 3hrs| 4hrs | 4hrs |
+| Create Nav Bar for Saved list | H | 3hrs| 1hrs | 1hrs |
+| Create check-off boxes too saved list| H | 3hrs| 1hrs | 1hrs |
+| Create delete buttons for search results area | H | 3hrs| 2hrs | 2hrs |
+| Get input sections to delete old input on button click | H | 2hrs| 1hrs | 1hrs |
+| Add flexbox CSS to saved list and main search fields of webpage | H | 3hrs| 4hrs | 4hrs |
+| Create MediaQuery to properly size elements on page | H | 3hrs| 4hrs | 4hrs |
+| Add map using second API| H | 3hrs| NA/hrs | NA/hrs |
+| Have map grab restaurant locations and show on map | H | 3hrs| NA/hrs | NA/hrs |
 
-| Total | H | 30hrs| hrs | hrs |
+| Total | H | 30.5hrs| 21hrs | 21hrs |
 
 ## Code Snippet
 My API requires you to grab restaurants by a city id that they have coded into each city. This required me to grab the city ids first before grabbing the restaurants. When searching cities a list of 1- 10+ options can come up. At first, my grab city Id function could only grab 1-3 city options. I decided to rewrite it and was happy with my result. It now grabs all city options and presents them to the user. It also simplified the code compared to the previous.
@@ -131,6 +133,7 @@ response.data.location_suggestions.forEach(city => {
 
 
 ## Change Log
- - got rid of the user ability to add rating to their saved list for sake of simplier, clean NavBar.
- - ended up not having time to add maps function 
+ - Got rid of the user ability to add rating to their saved list for sake of simplier, clean NavBar.
+ - Changes layout for the Saved list and random generator to always be on a Side NavBar that can be opened and closed for all screen sizes.
+ - Ended up not having time to add maps function 
  
