@@ -144,7 +144,6 @@ padding: 20px;
   visibility: hidden;
   top: 0;
   color:white;
-  top: 0;
   margin-left: 0;
   left:0;
   font-size: 15px;
@@ -201,7 +200,6 @@ padding:5px;
 @media screen and (max-width: 700px){
   h1{
     font-size: 30px;
-    justify-content: space-evenly;
     background-size: cover;
   }
   h2{
@@ -214,6 +212,7 @@ padding:5px;
     justify-content: inherit;
     font-size: 12px;
   }
+
 .container{
   display: flex;
   flex-flow: column;
@@ -226,7 +225,12 @@ padding:5px;
   margin:20px;
   font-size: 12px;
 }
+#main {
+  margin-left: 0%;
+}
 #sideBar{
+  height: 100%;
+  width: 0%; 
   padding-top: 20px; 
   justify-content: space-around;
   text-align: center;
@@ -260,11 +264,14 @@ padding:5px;
   visibility: hidden;
  }
  .openbtn{
+   display:none;
    visibility: hidden;
  }
  .openbtnSmall{
    color:white;
    visibility: visible;
+   left:0;
+   margin-left:0;
  }
  .closebtnSmall{
    visibility: visible;

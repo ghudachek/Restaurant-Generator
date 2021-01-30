@@ -51,6 +51,7 @@ async function getLocations(city) {
   }
 
 }
+//GET RESTAURANTS:
 //use city id to get restaurants...
 async function getRestaurants(cityId) {
   try {
@@ -119,7 +120,7 @@ fetchButton.addEventListener('click', (e) => {
 
 ///////
 ///ADDS ONE list item (RESTAURANT TO SAVED PERSONAL LIST)
-/// does so by changing the button and li to each have a different (numbered) classname to select seperately
+/// does so by changing the button and label to each have a different (numbered) classname to select seperately
 function addSaved() {
   //ADD TO SAVED 
   let listButton = document.querySelectorAll('#save')
@@ -190,7 +191,7 @@ generatorButton.addEventListener('click', (e) => {
 
 
 
-/// makecheckboxes on List
+/// MAKE CHECKBOX:
 
 function makeCheckbox() {
 
@@ -227,33 +228,6 @@ function changeCities() {
 
 }
 
-// SIDEBAR FUNCTIONS -- from https://www.w3schools.com/howto/howto_js_sidenav.asp
-
-
-
-function openNav() {
-  document.getElementById("sideBar").style.width = "30%";
-  document.getElementById("main").style.marginLeft = "30%";
-  document.getElementById("footer").style.marginLeft = "30%"
-}
-
-function closeNav() {
-  document.getElementById("sideBar").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-  document.getElementById("footer").style.marginLeft = "0";
-}
-
-function openNavSmall() {
-  document.getElementById("sideBar").style.width = "100%";
-  document.getElementById("main").style.marginLeft = "100%";
-  document.getElementById("footer").style.marginLeft = "100%"
-}
-
-function closeNavSmall() {
-  document.getElementById("sideBar").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-  document.getElementById("footer").style.marginLeft = "0";
-}
 
 //LET USER ADD TO THE LIST WITH INPUT
 
@@ -271,5 +245,29 @@ listButton.addEventListener('click', (e) => {
   }
 })
 
+// SIDEBAR FUNCTIONS -- from https://www.w3schools.com/howto/howto_js_sidenav.asp
 
+function openNav() {
+  document.getElementById("sideBar").style.width = "30%";
+  document.getElementById("main").style.marginLeft = "30%";
+  document.getElementById("footer").style.marginLeft = "30%"
+}
+
+function closeNav() {
+  document.getElementById("sideBar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.getElementById("footer").style.marginLeft = "0";
+}
+//FOR SMALL SCREENS:
+function openNavSmall() {
+  document.getElementById("sideBar").style.width = "100%";
+  document.getElementById("main").style.marginLeft = "100%";
+  document.getElementById("footer").style.marginLeft = "100%"
+}
+
+function closeNavSmall() {
+  document.getElementById("sideBar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.getElementById("footer").style.marginLeft = "0";
+}
 //consdier grabbing lat and long from data.restaurant.location(.latitude/longitude) for map placement?
