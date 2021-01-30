@@ -7,7 +7,12 @@
 const userInput = document.querySelector('.search')
 const listButton = document.querySelector('#add')
 const fetchButton = document.getElementById('find')
-
+//Random start for restaurant list:
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+let random = getRandomInt(80) //Zomato doesn't allow to grab above this starting point!
+console.log(random)
 
 //GET CITY ID:
 async function getLocations(city) {
@@ -40,6 +45,7 @@ async function getLocations(city) {
         //console.log(cityOption0.id) -- grabs correctly
         getRestaurants(button.value)
         deletePrevious()
+
       })
 
     })
@@ -52,15 +58,17 @@ async function getLocations(city) {
 }
 //GET RESTAURANTS:
 //use city id to get restaurants...
+
+//https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&apikey=dc94f6e47c74ca3499a36e0541cb3e65
+//https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&start=${random}&apikey=dc94f6e47c74ca3499a36e0541cb3e65
 async function getRestaurants(cityId) {
   try {
 
-    let restaurantSearch = await axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&apikey=dc94f6e47c74ca3499a36e0541cb3e65`)
+    let restaurantSearch = await axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&start=${random}&count=20&apikey=dc94f6e47c74ca3499a36e0541cb3e65`)
     console.log(restaurantSearch.data)
     // console.log(restaurantSearch.data.restaurants.length)
     //console.log(restaurantSearch.data.restaurants)
     //console.log(restaurantSearch.data.restaurants[1])
-
 
     restaurantSearch.data.restaurants.forEach(element => {
       let resId = element.restaurant.id
@@ -69,6 +77,8 @@ async function getRestaurants(cityId) {
       //console.log(element.restaurant.location.address)
       let restAddress = element.restaurant.location.address
       //console.log(element.restaurant.timings)
+      let restCuisine = element.restaurant.cuisines
+      console.log(restCuisine)
       let restHours = element.restaurant.timings
       //console.log(element.restaurant.url)
       let restWebsite = element.restaurant.url
@@ -82,6 +92,7 @@ async function getRestaurants(cityId) {
     <div class='restData'>
     <h2>${restName}: <a id='rating'>${restRating} &#9733s</a> </h2>
     <button id='save'>Add to List</button>  
+    <p>Cuisine: ${restCuisine}</p>
     <p>Hours: ${restHours}</p> 
     <a>&#9900 Address: ${restAddress}</a><br>
     <a> &#9900 </a>
