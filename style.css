@@ -201,7 +201,7 @@ padding:5px;
     background-size: cover;
   }
   h2{
-    font-size: 15px;
+    font-size: 18px;
   }
   span{
     font-size: 12px;
@@ -210,7 +210,7 @@ padding:5px;
     justify-content: inherit;
     font-size: 12px;
   }
-
+ 
 .container{
   display: flex;
   flex-flow: column;
