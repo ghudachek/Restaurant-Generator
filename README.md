@@ -2,7 +2,7 @@
 
 ## Restaurant Generator
 
-[Restaurant Generator](https://github.com/ghudachek/Restaurant-Generator)
+[Restaurant Generator](https://ghudachek.github.io/Restaurant-Generator/)
 
 ## Project Description
 
