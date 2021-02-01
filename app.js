@@ -152,11 +152,10 @@ function choose() {
   }
   let currentChoice = 0;
   let savedChoices = document.querySelectorAll('.user-list label')
-  console.log(savedChoices)
+
   getRandomInt(savedChoices.length)
   currentChoice = getRandomInt(savedChoices.length);
-  console.log(currentChoice)
-  console.log(savedChoices[currentChoice].innerText)
+
   let chosen = document.querySelector('.generated')
   let newChild = document.createElement('h3')
   newChild.innerText = savedChoices[currentChoice].innerText
