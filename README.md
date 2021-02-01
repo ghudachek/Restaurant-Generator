@@ -6,7 +6,7 @@
 
 ## Project Description
 
-Will grab restaurants in a given city using the API Zomato. Restaurants will show name, Zamato's rating, website link,phone, type of cuisine, location, and hours of operation. Listed restaurants can be saved to your own list and randomized to generate "where you will eat next?" for those who can never choose!
+My project grabs restaurants in a given city using the API Zomato. Restaurants show name, Zamato's rating, website link,phone, type of cuisine, location, and hours of operation. Listed restaurants can be saved to your own list and randomized to generate "where you will eat next?" for those who can never choose!
 
 ## API and Data Sample
 
