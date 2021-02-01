@@ -1,7 +1,6 @@
 
 // API_KEY = dc94f6e47c74ca3499a36e0541cb3e65
 
-
 //GLOBAL VARIABLES:
 const userInput = document.querySelector('.search')
 const listButton = document.querySelector('#add')
@@ -42,7 +41,6 @@ async function getLocations(city) {
       })
 
     })
-
 
   } catch (err) {
     console.log(err)
@@ -93,7 +91,7 @@ async function getRestaurants(cityId) {
       restInfoContainer.insertAdjacentHTML("beforeend", restaurantInfo)
 
     });
-    addSaved()
+    addSaved();
 
   } catch (err) {
     console.log(err)
@@ -105,7 +103,7 @@ fetchButton.addEventListener('click', (e) => {
   e.preventDefault()
   getLocations(userInput.value)
   userInput.value = ''
-  changeCities()
+  changeCities();
 
 })
 
@@ -127,13 +125,13 @@ function addSaved() {
     listButton[i].className = `save${[i]} `
     let restaurant = document.querySelector(`.restaurant${i}`)
     let delRest = document.querySelector(`.restData${i}`)
+
     listButton[i].addEventListener('click', (e) => {
       e.preventDefault()
       let divList = document.querySelector('.user-list')
       let searchResults = document.querySelector('.search-results')
 
       divList.append(restaurant)
-
       searchResults.removeChild(delRest)
 
       makeCheckbox()
@@ -202,13 +200,13 @@ function deletePrevious() {
     searchArea.removeChild(searchArea.lastChild)
   }
 }
+
 //change city options:
 function changeCities() {
   let cityOptions = document.querySelector('.city-options')
   while (cityOptions.lastChild) {
     cityOptions.removeChild(cityOptions.lastChild)
   }
-
 
 }
 
