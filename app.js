@@ -2,17 +2,17 @@
 // API_KEY = dc94f6e47c74ca3499a36e0541cb3e65
 
 
-// https://developers.zomato.com/api/v2.1/cities?q=Nashville&apikey=dc94f6e47c74ca3499a36e0541cb3e65
 //GLOBAL VARIABLES:
 const userInput = document.querySelector('.search')
 const listButton = document.querySelector('#add')
 const fetchButton = document.getElementById('find')
+
 //Random start for restaurant list:
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-let random = getRandomInt(80) //Zomato doesn't allow to grab above this starting point!
-console.log(random)
+let random = getRandomInt(80)
+
 
 //GET CITY ID:
 async function getLocations(city) {
@@ -42,7 +42,7 @@ async function getLocations(city) {
 
       button.addEventListener('click', (e) => {
         e.preventDefault()
-        //console.log(cityOption0.id) -- grabs correctly
+
         getRestaurants(button.value)
         deletePrevious()
 
@@ -56,19 +56,15 @@ async function getLocations(city) {
   }
 
 }
+
 //GET RESTAURANTS:
 //use city id to get restaurants...
 
-//https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&apikey=dc94f6e47c74ca3499a36e0541cb3e65
-//https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&start=${random}&apikey=dc94f6e47c74ca3499a36e0541cb3e65
 async function getRestaurants(cityId) {
   try {
 
     let restaurantSearch = await axios.get(`https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&start=${random}&count=20&apikey=dc94f6e47c74ca3499a36e0541cb3e65`)
     console.log(restaurantSearch.data)
-    // console.log(restaurantSearch.data.restaurants.length)
-    //console.log(restaurantSearch.data.restaurants)
-    //console.log(restaurantSearch.data.restaurants[1])
 
     restaurantSearch.data.restaurants.forEach(element => {
       let resId = element.restaurant.id
@@ -101,9 +97,8 @@ async function getRestaurants(cityId) {
     <a href=${phoneNum}>${phoneNum}</a>
       
     </div>
-  
         `
-      // console.log(restaurantInfo)
+
       const restInfoContainer = document.querySelector('.search-results')
       restInfoContainer.insertAdjacentHTML("beforeend", restaurantInfo)
 
@@ -121,43 +116,39 @@ async function getRestaurants(cityId) {
 //PICK THE CITY...
 fetchButton.addEventListener('click', (e) => {
   e.preventDefault()
-  //console.log(userInput.value)
+
   getLocations(userInput.value)
   userInput.value = ''
   changeCities()
 
 })
 
-///////
-///ADDS ONE list item (RESTAURANT TO SAVED PERSONAL LIST)
-/// does so by changing the button and label to each have a different (numbered) classname to select seperately
+
+///ADDS ONE LIST ITEM (RESTAURANT TO SAVED LIST)
+
 function addSaved() {
   //ADD TO SAVED 
   let listButton = document.querySelectorAll('#save')
   let lists = document.querySelectorAll('.restaurant')
   let extraData = document.querySelectorAll('.restData')
-  console.log(listButton) //is an array!
+
   for (i = 0; i < lists.length; i++) {
     lists[i].className = `restaurant${[i]} `
     extraData[i].className = `restData${[i]}`
-    //console.log(lists[i])
+
   }
   for (i = 0; i < listButton.length; i++) {
     listButton[i].className = `save${[i]} `
     let restaurant = document.querySelector(`.restaurant${i}`)
     let delRest = document.querySelector(`.restData${i}`)
-    //console.log(delRest)
-    //console.log(listButton[i]) it works! gives each button a different class name ..
     listButton[i].addEventListener('click', (e) => {
       e.preventDefault()
       let divList = document.querySelector('.user-list')
       let searchResults = document.querySelector('.search-results')
-      // let del = document.querySelectorAll('.restaurants')
-      //console.log(searchResults)
+
       divList.append(restaurant)
-      //console.log(divList)
-      searchResults.removeChild(delRest) //removes extra data from search
-      //console.log(divList)
+
+      searchResults.removeChild(delRest)
 
       makeCheckbox()
     })
@@ -207,8 +198,7 @@ function makeCheckbox() {
 
   const yourList = document.querySelector('.user-list')
   let elements = yourList.querySelectorAll('label')
-  //console.log(yourList)
-  //console.log(elements)
+
   let input = ''
   for (i = 0; i < elements.length; i++) {
     input =
@@ -245,7 +235,7 @@ listButton.addEventListener('click', (e) => {
   e.preventDefault();
   let label = document.createElement('label')
   let listInput = document.querySelector('.list-add')
-  //console.log(listInput.value)
+
   if (listInput.value !== '') {
     label.innerText = listInput.value
     let list = document.querySelector('.user-list')
@@ -255,8 +245,8 @@ listButton.addEventListener('click', (e) => {
   }
 })
 
-// SIDEBAR FUNCTIONS -- from https://www.w3schools.com/howto/howto_js_sidenav.asp
 
+// SIDEBAR FUNCTIONS -- from https://www.w3schools.com/howto/howto_js_sidenav.asp
 function openNav() {
   document.getElementById("sideBar").style.width = "30%";
   document.getElementById("main").style.marginLeft = "30%";
@@ -268,6 +258,7 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "0";
   document.getElementById("footer").style.marginLeft = "0";
 }
+
 //FOR SMALL SCREENS:
 function openNavSmall() {
   document.getElementById("sideBar").style.width = "100%";
@@ -280,4 +271,3 @@ function closeNavSmall() {
   document.getElementById("main").style.marginLeft = "0";
   document.getElementById("footer").style.marginLeft = "0";
 }
-//consdier grabbing lat and long from data.restaurant.location(.latitude/longitude) for map placement?
