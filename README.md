@@ -6,7 +6,7 @@
 
 ## Project Description
 
-Will grab restaurants in a given area using the API Zomato by giving a city. Restaurants will show name, website link,location, and hours of operation. Listed restaurants can be saved to your own list and randomized to generate "where you will eat tonight?" for those who can never choose!
+Will grab restaurants in a given city using the API Zomato. Restaurants will show name, Zamato's rating, website link,phone, type of cuisine, location, and hours of operation. Listed restaurants can be saved to your own list and randomized to generate "where you will eat next?" for those who can never choose!
 
 ## API and Data Sample
 
@@ -87,7 +87,7 @@ API: https://developers.zomato.com/api
 | Create HTML boiler| H | 0.5hrs| 0.5hrs | 0.5hrs |
 | Link JS data to search button, and create search output (JS to HTML) | H | 3hrs| 3hrs | 3hrs |
 | Create "add" button(linked to restaurants) to  add to saved list | H | 3hrs| 4hrs | 4hrs |
-| Create Nav Bar for Saved list | H | 3hrs| 1hrs | 1hrs |
+| Create Nav Bar for Saved list | H | 3hrs| 2hrs | 2hrs |
 | Create check-off boxes too saved list| H | 3hrs| 1hrs | 1hrs |
 | Create delete buttons for search results area | H | 3hrs| 2hrs | 2hrs |
 | Get input sections to delete old input on button click | H | 2hrs| 1hrs | 1hrs |
@@ -96,7 +96,7 @@ API: https://developers.zomato.com/api
 | Add map using second API| H | 3hrs| NA/hrs | NA/hrs |
 | Have map grab restaurant locations and show on map | H | 3hrs| NA/hrs | NA/hrs |
 
-| Total | H | 30.5hrs| 21hrs | 21hrs |
+| Total | H | 30.5hrs| 22hrs | 22hrs |
 
 ## Code Snippet
 My API requires you to grab restaurants by a city id that they have coded into each city. This required me to grab the city ids first before grabbing the restaurants. When searching cities a list of 1- 10+ options can come up. At first, my grab city Id function could only grab 1-3 city options. I decided to rewrite it and was happy with my result. It now grabs all city options and presents them to the user. It also simplified the code compared to the previous.
@@ -134,6 +134,7 @@ response.data.location_suggestions.forEach(city => {
 
 ## Change Log
  - Got rid of the user ability to add rating to their saved list for sake of simplier, clean NavBar.
- - Changes layout for the Saved list and random generator to always be on a Side NavBar that can be opened and closed for all screen sizes.
+ - Changed layout for the saved list and random generator to always be in a Side NavBar that can be opened and closed for all screen sizes.
  - Ended up not having time to add maps function 
+ - Added cuisine type to the data given when restaurants are shown.
  

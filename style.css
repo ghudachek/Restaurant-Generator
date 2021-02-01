@@ -51,9 +51,7 @@ input.search[type=text] {
   border: 5px solid #588b8b;
   border-radius: 4px;
 }
-input[type=text]:focus {
-  width: 30%;
-}
+
 h1{
   color: white;
   text-align: center;
@@ -270,7 +268,6 @@ padding:5px;
  .openbtnSmall{
    color:white;
    visibility: visible;
-   left:0;
    margin-left:0;
  }
  .closebtnSmall{

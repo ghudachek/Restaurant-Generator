@@ -7,12 +7,6 @@ const userInput = document.querySelector('.search')
 const listButton = document.querySelector('#add')
 const fetchButton = document.getElementById('find')
 
-//Random start for restaurant list:
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-let random = getRandomInt(80)
-
 
 //GET CITY ID:
 async function getLocations(city) {
@@ -57,6 +51,12 @@ async function getLocations(city) {
 
 }
 
+//Random start for restaurant list:
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+let random = getRandomInt(80)
+
 //GET RESTAURANTS:
 //use city id to get restaurants...
 
@@ -98,25 +98,20 @@ async function getRestaurants(cityId) {
       
     </div>
         `
-
       const restInfoContainer = document.querySelector('.search-results')
       restInfoContainer.insertAdjacentHTML("beforeend", restaurantInfo)
-
 
     });
     addSaved()
 
-
   } catch (err) {
     console.log(err)
   }
-
 }
 
-//PICK THE CITY...
+//PICK THE CITY INPUT
 fetchButton.addEventListener('click', (e) => {
   e.preventDefault()
-
   getLocations(userInput.value)
   userInput.value = ''
   changeCities()
@@ -124,10 +119,10 @@ fetchButton.addEventListener('click', (e) => {
 })
 
 
-///ADDS ONE LIST ITEM (RESTAURANT TO SAVED LIST)
+///ADDS TO SAVED
 
 function addSaved() {
-  //ADD TO SAVED 
+
   let listButton = document.querySelectorAll('#save')
   let lists = document.querySelectorAll('.restaurant')
   let extraData = document.querySelectorAll('.restData')
@@ -160,7 +155,6 @@ function addSaved() {
 
 ///GENERATE RANDOM PICK:
 
-
 function choose() {
   function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
@@ -176,8 +170,9 @@ function choose() {
   let newChild = document.createElement('h3')
   newChild.innerText = savedChoices[currentChoice].innerText
 
-  let oldChild = chosen.lastChild
   //Replacement of Generated Restaurant
+  let oldChild = chosen.lastChild
+
   if (chosen.lastChild) {
     chosen.replaceChild(newChild, oldChild)
   } else { chosen.append(newChild) }
@@ -193,7 +188,6 @@ generatorButton.addEventListener('click', (e) => {
 
 
 /// MAKE CHECKBOX:
-
 function makeCheckbox() {
 
   const yourList = document.querySelector('.user-list')
@@ -213,12 +207,12 @@ function makeCheckbox() {
 //REFRESH BUTTONS AND SEARCHES 
 function deletePrevious() {
   let searchArea = document.querySelector('.search-results')
-  //Delete Previous responses....
+  //Delete Previous input responses:
   while (searchArea.lastChild) {
     searchArea.removeChild(searchArea.lastChild)
   }
 }
-
+//change city options:
 function changeCities() {
   let cityOptions = document.querySelector('.city-options')
   while (cityOptions.lastChild) {
